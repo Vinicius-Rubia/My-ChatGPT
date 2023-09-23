@@ -9,6 +9,7 @@ export const Container = tw.section`
   justify-center
   items-center
   gap-3
+  overflow-hidden
 `;
 
 export const Loading = tw(motion.div)`
