@@ -46,13 +46,14 @@ export const Layout = tw.div`
   overflow-auto
   h-[calc(100%-24px)]
   md:h-[calc(100%-72px)]
+  flex
+  flex-1
   z-10
 `;
 
 export const Content = tw.div`
   max-w-2xl
-  mx-auto
-  h-full
+  m-auto
   flex
   flex-col
   justify-center
@@ -137,6 +138,7 @@ export const Comments = tw.div`
   flex-wrap
   lg:flex-nowrap
   gap-12
+  mb-20
 `;
 
 export const BoxComment = tw.div`
@@ -176,12 +178,13 @@ export const WaveTwo = tw.img`
 `;
 
 export const IconGitHub = tw(VscGithub)`
-  absolute
-  bottom-3
-  right-3
+  mx-auto
   text-2xl
   cursor-pointer
   hover:scale-125
   hover:rotate-[360deg]
   transition-all
+  lg:absolute
+  lg:bottom-3
+  lg:right-3
 `;

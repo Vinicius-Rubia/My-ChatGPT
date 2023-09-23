@@ -4,16 +4,16 @@ import { IoMdSend, IoIosTrendingUp } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
 import { BiTargetLock } from "react-icons/bi";
 import { images } from "../../utils/images";
-import { Menu } from "../../components";
 import * as C from "./styles";
+import Menu from "../../components/Menu";
 
 const Welcome: React.FC = () => {
   return (
     <C.Container>
       <C.RoundedBlur />
-      <C.Layout>
+      <C.Layout id="layout">
         <C.Content>
-          <Menu />
+          {Menu}
           <C.Title>
             Bem vindo ao <C.TitleDecoration>ChatGPT</C.TitleDecoration>
           </C.Title>

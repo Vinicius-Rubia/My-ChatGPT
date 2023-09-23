@@ -3,6 +3,7 @@ import { IoMenuSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import * as C from "./styles";
+import transition from "../../utils/transition";
 
 const menu = [
   {
@@ -25,7 +26,7 @@ const menu = [
 
 const lastItem = menu.length - 1;
 
-export const Menu: React.FC = () => {
+const Menu: React.FC = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -48,3 +49,5 @@ export const Menu: React.FC = () => {
     </DropdownMenu.Root>
   );
 };
+
+export default transition(Menu);

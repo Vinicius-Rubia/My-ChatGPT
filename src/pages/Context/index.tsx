@@ -1,8 +1,8 @@
 import React, { useState, ChangeEvent } from "react";
 import transition from "../../utils/transition";
-import { Menu } from "../../components";
 import { images } from "../../utils/images";
 import * as C from "./styles";
+import Menu from "../../components/Menu";
 
 const Context: React.FC = () => {
   const [fileContent, setFileContent] = useState<string>("");
@@ -31,9 +31,9 @@ const Context: React.FC = () => {
   return (
     <C.Container>
       <C.RoundedBlur />
-      <C.Layout>
+      <C.Layout id="layout">
         <C.Content>
-          <Menu />
+          {Menu}
           <C.Title>
             Escolha um arquivo para o{" "}
             <C.TitleDecoration>Contexto</C.TitleDecoration>

@@ -10,6 +10,11 @@ body {
   @apply w-1;
   @apply h-1;
 }
+
+#layout::-webkit-scrollbar {
+  display: none;
+}
+
 ::-webkit-scrollbar-track {
   @apply bg-white/30;
 }
