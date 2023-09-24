@@ -22,7 +22,7 @@ const Context: React.FC = () => {
         }
       };
       reader.readAsText(selectedFile);
-      alert("Arquivo carregado!");
+      
     } else {
       alert("Ops... Esse não é um arquivo do tipo html!");
     }

@@ -90,7 +90,7 @@ export const SubTitle = tw.h2`
   sm:text-base
 `;
 
-export const InputInit = tw.div`
+export const InputInit = tw.form`
   rounded-[10px]
   h-14
   bg-[#252525]

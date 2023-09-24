@@ -6,8 +6,11 @@ import { BiTargetLock } from "react-icons/bi";
 import { images } from "../../utils/images";
 import * as C from "./styles";
 import Menu from "../../components/Menu";
+import { useNavigate } from "react-router-dom";
 
 const Welcome: React.FC = () => {
+  const navigate = useNavigate();
+  
   return (
     <C.Container>
       <C.RoundedBlur />
@@ -24,7 +27,7 @@ const Welcome: React.FC = () => {
               type="text"
               placeholder='Exemplo: "Me diga quem é você!"'
             />
-            <C.Send>
+            <C.Send onClick={() => navigate("/chat")}>
               <IoMdSend className="text-white" />
             </C.Send>
           </C.InputInit>
