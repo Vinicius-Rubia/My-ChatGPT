@@ -3,15 +3,20 @@ import transition from "../../utils/transition";
 import { images } from "../../utils/images";
 import * as C from "./styles";
 import Menu from "../../components/Menu";
+import { Modal } from "../../shared";
+import { useDispatch } from "react-redux";
+import { setModal } from "../../redux/modalSlice";
 
 const Context: React.FC = () => {
   const [fileContent, setFileContent] = useState<string>("");
   const [fileName, setFileName] = useState<string>("");
+  const [divContent, setDivContent] = useState('');
+  const dispatch = useDispatch();
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
 
-    if (selectedFile && selectedFile.type === "text/html") {
+    if (selectedFile && selectedFile.type === "text/plain") {
       setFileName(selectedFile.name);
       const reader = new FileReader();
 
@@ -19,13 +24,20 @@ const Context: React.FC = () => {
         if (e.target) {
           const fileText = e.target.result as string;
           setFileContent(fileText);
+          setDivContent(fileText);
         }
       };
       reader.readAsText(selectedFile);
       
     } else {
-      alert("Ops... Esse não é um arquivo do tipo html!");
+      dispatch(setModal({ title: "Houve um problema...", message: "O arquivo selecionado não é do tipo .txt. Tente novamente carregar um arquivo que contenha a extensão .txt", type: "error", buttonMessage: ["OK"], isActive: false}));
     }
+  };
+
+  const handleTextareaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const newText = event.target.value;
+    setFileContent(newText);
+    setDivContent(newText);
   };
 
   return (
@@ -54,7 +66,8 @@ const Context: React.FC = () => {
               </C.Upload>
 
               <C.ViewText
-                defaultValue={fileContent}
+                value={fileContent}
+                onChange={handleTextareaChange}
                 placeholder="Carregue um arquivo para visualizar aqui o conteúdo..."
               />
 
@@ -68,8 +81,8 @@ const Context: React.FC = () => {
                   <C.BallTwo></C.BallTwo>
                   <C.BallThree></C.BallThree>
                 </C.BallsIllutration>
-                {fileContent ? (
-                  <C.ContentFile readOnly value={fileContent} />
+                {divContent ? (
+                  <C.ContentFile readOnly value={divContent} />
                 ) : (
                   <div className="flex flex-1 gap-3 flex-wrap justify-center items-center text-white/30 font-semibold text-2xl">
                     Nada a visualizar
@@ -86,6 +99,9 @@ const Context: React.FC = () => {
           </a>
         </C.Content>
       </C.Layout>
+
+
+      <Modal />
 
       <C.WaveOne src={images.waveGreenOne} />
       <C.WaveTwo src={images.waveGreenTwo} />

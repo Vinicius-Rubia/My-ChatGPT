@@ -4,9 +4,9 @@ import { IoMdSend, IoIosTrendingUp } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
 import { BiTargetLock } from "react-icons/bi";
 import { images } from "../../utils/images";
-import * as C from "./styles";
 import Menu from "../../components/Menu";
 import { useNavigate } from "react-router-dom";
+import * as C from "./styles";
 
 const Welcome: React.FC = () => {
   const navigate = useNavigate();

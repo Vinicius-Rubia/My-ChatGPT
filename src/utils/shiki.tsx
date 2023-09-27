@@ -1,4 +1,3 @@
-
 interface CodePreviewProps {
   code: string;
 }
